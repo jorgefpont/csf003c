@@ -19,3 +19,5 @@ def conv_bin(dec_num):
 
 print(conv_bin(233))
 print(conv_bin(233) == "11101001")
+print(conv_bin(255))
+print(conv_bin(256))
