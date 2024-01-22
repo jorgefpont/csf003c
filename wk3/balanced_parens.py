@@ -9,11 +9,17 @@ def par_checker(symbol_string):
         symbol = symbol_string[index]
         if symbol == "(":
             s.push(symbol)
+
+        # else:
+        #     if s.is_empty():
+        #         balanced = False
+        #     else:
+        #         s.pop()
+
+        elif s.is_empty():
+            balanced = False
         else:
-            if s.is_empty():
-                balanced = False
-            else:
-                s.pop()
+            s.pop()
 
         index = index + 1
 
@@ -23,5 +29,5 @@ def par_checker(symbol_string):
         return False
 
 
-print(par_checker('((()()))'))
-print(par_checker('(()()()'))
+print(par_checker('((()()))()'))
+print(par_checker('(()()()))'))
