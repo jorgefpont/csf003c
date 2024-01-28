@@ -27,6 +27,9 @@ def is_paren_balanced(paren_string):
     index = 0
 
     while index < len(paren_string) and is_balanced:
+
+        print(index, paren_string[index])
+
         paren = paren_string[index]
         if paren in "([{":
             s.push(paren)
@@ -39,13 +42,17 @@ def is_paren_balanced(paren_string):
                     is_balanced = False
         index += 1
 
+        print()
+        print("is empty: ", s.is_empty())
+        print("is_balanced: ", is_balanced)
+        print("---")
+
     if s.is_empty() and is_balanced:
         return True
     else:
         return False
 
 
-print(is_paren_balanced("(((({}))))"))
-
-print(is_paren_balanced("[][]]]"))
+#print(is_paren_balanced("(((({}))))"))
+#print(is_paren_balanced("[][]]]"))
 print(is_paren_balanced("[][]"))

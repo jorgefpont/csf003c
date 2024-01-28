@@ -21,4 +21,3 @@ class Stack():
     def get_stack(self):
         return self.items
 
-
