@@ -50,19 +50,18 @@ class LinkedList:
         return ll
 
     def delete_stack(self):
-        "Deletes stack by setting head to None"
+        """Deletes stack by setting head to None"""
         self.head = None
 
     def peek(self):
-        "Returns head node but does not pop it from the stack"
-        # peaks head node
+        """Returns head node but does not pop it from the stack"""
         if not self.is_empty():
             return self.head
         else:
             return False
 
     def print_list(self):
-        "Prints the stack"
+        """Prints the stack"""
         cur_node = self.head
         while cur_node:
             print(cur_node.data, end=", ")

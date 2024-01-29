@@ -1,7 +1,17 @@
+# Foothill College
+# CS 03C - DSs and A in Python, Winter 2024
+# Assignment 1
+# Prepared by Jorge Pont
+# Email: jorgefpont@gmail.com
+# Student ID: 10949994
+# Note: used the homework from 3B/Fall-23
+# for starter code and class definitions
+# (Modified to use linked list instead of Python list
+# and to push and pop from the right end
+
 """
 Use a stack to check whether or not a string
 has balanced usage of parenthesis.
-
 Example:
     (), ()(), (({[]}))  <- Balanced.
     ((), {{{)}], [][]]] <- Not Balanced.
@@ -10,7 +20,8 @@ Example:
 from jorgepontstack import LinkedList
 
 
-def is_match(p1, p2):  # I reversed
+def is_match(p1, p2):
+    """Returns True if open and close parens match"""
     if p1 == "(" and p2 == ")":
         return True
     elif p1 == "{" and p2 == "}":
@@ -22,6 +33,8 @@ def is_match(p1, p2):  # I reversed
 
 
 def is_paren_balanced(paren_string):
+    """Returns True if an input string of parens is matched,
+    False otherwise"""
     s = LinkedList()
     is_balanced = True
     index = 0
@@ -31,11 +44,8 @@ def is_paren_balanced(paren_string):
 
     while index < len(paren_string) and is_balanced:
 
-        # print(index, paren_string[index])
-
         paren = paren_string[index]
         if paren in "([{":
-        #if paren in ")]}":
             s.push(paren)
         else:
             if s.is_empty():
@@ -46,34 +56,34 @@ def is_paren_balanced(paren_string):
                     is_balanced = False
         index += 1
 
-        # s.print_list()
-        # print()
-        # print("is empty: ", s.is_empty())
-        # print("is_balanced: ", is_balanced)
-        # print("---")
-
     if s.is_empty() and is_balanced:
         return True
     else:
         return False
 
-# 1.) Provide at least the 3 checks of balanced symbols:
-test_case_1 = "([|)]"
-test_case_2 = "() (() [()])"
-test_case_3 = "{{([][])}()}"
 
-print(is_paren_balanced(test_case_1))
-print(is_paren_balanced(test_case_2))
-print(is_paren_balanced(test_case_3))
+# 1.) Provide at least the 3 checks of balanced symbols:
+case1 = "([|)]"
+case2 = "() (() [()])"
+case3 = "{{([][])}()}"
+case4 = "[[abc]]"
+case5 = "abc"
+case6 = ""
+case7 = "]"
+
+test_cases = [case1, case2, case3, case4, case5, case6, case7]
+
+for case in test_cases:
+    print("Input string: ", case)
+    print("Parens are balanced: ", is_paren_balanced(case))
+    print('---')
 
 # 2.) Provide a demonstration that your applications manages
 # non symbol characters
-print(is_paren_balanced("[[abc]]"))
-print(is_paren_balanced("abc"))
+# see case 4, 5 above
+
 # detects attempting to pop from an empty stack
-print(is_paren_balanced(""))
-# detects an incorrect pairing symbol popped from the stack
+# see case6
 
 # 3.) Give the time and space complexity of your solution.
-# time complexity:
-# space complexity:
+# time complexity: O(n) as the program loops once through the input string

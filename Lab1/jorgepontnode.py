@@ -12,9 +12,16 @@ checks if a node points to another node
 
 
 class Node:
+
+    valid_data = "[{()]}"
+
     def __init__(self, data):
-        self.data = data
-        self.next = None
+        if self.validate_data(data):
+            self.data = data
+            self.next = None
+        else:
+            print("error")
+
 
     def getData(self):
         return self.data
@@ -22,14 +29,18 @@ class Node:
     def getNext(self):
         return self.next
 
-    def setData(self, newdata):
-        self.data = newdata
+    def setData(self, new_data):
+        self.data = new_data
 
-    def setNext(self, newnext):
-        self.next = newnext
+    def setNext(self, new_next):
+        self.next = new_next
 
-    def validate_data(self):
-        pass
+    def validate_data(self, data):
+        if data not in Node.valid_data:
+            print("Incorrect data for Node")
+        else:
+            return True
 
     def validate_points(self):
         pass
+
