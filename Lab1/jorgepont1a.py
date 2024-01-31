@@ -87,3 +87,31 @@ for case in test_cases:
 
 # 3.) Give the time and space complexity of your solution.
 # time complexity: O(n) as the program loops once through the input string
+
+"""
+C:\Users\jorge\PycharmProjects\CSF003C\venv\Scripts\python.exe C:\Users\jorge\PycharmProjects\CSF003C\Lab1\jorgepont1a.py 
+Input string:  ([|)]
+Parens are balanced:  False
+---
+Input string:  () (() [()])
+Parens are balanced:  False
+---
+Input string:  {{([][])}()}
+Parens are balanced:  True
+---
+Input string:  [[abc]]
+Parens are balanced:  False
+---
+Input string:  abc
+Parens are balanced:  False
+---
+Input string:  
+Parens are balanced:  False
+---
+Input string:  ]
+Parens are balanced:  False
+---
+
+Process finished with exit code 0
+
+"""
