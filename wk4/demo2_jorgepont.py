@@ -12,7 +12,7 @@ your first name + the length of your last name
 jorge pont is 5+4=9
 """
 
-from wk4.jorgepontLab2 import pascal
+from jorgepontLab2 import pascal
 
 y = 1
 l = []
@@ -25,8 +25,6 @@ for n in [0, 1, 2, 3, 4, 5, 6, 9]:
 
 """
 PROGRAM OUTPUT
-
-C:\Users\jorge\ ... \CSF003C\wk4\demo2_jorgepont.py 
 n =  0
 base of triangle:  None
 -----
