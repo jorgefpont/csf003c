@@ -16,6 +16,12 @@ appearing in the nth line of Pascal's triangle.
 
 triangle = []
 def pascal(prev_row, y, num_rows):
+    """Calculates a Pascal triangle and returns the base/bottom row
+    Requires the following parameters:
+    - prev_row should be an empty list, l=[]
+    - y (int) is the number of elements in the top of the triangle, for this assignment y=1
+    - num_rows (int) is how many rows the triangle should have
+    Returns a list with the last row of the triangle"""
 
     if y > num_rows:  # base case
         return
