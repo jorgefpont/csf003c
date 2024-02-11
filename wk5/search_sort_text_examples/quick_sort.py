@@ -1,13 +1,13 @@
-def quickSort(alist):
-   quickSortHelper(alist,0,len(alist)-1)
+def quick_sort(alist):
+   quick_sort_helper(alist, 0, len(alist) - 1)
 
-def quickSortHelper(alist,first,last):
+def quick_sort_helper(alist, first, last):
    if first<last:
-
        splitpoint = partition(alist,first,last)
-
-       quickSortHelper(alist,first,splitpoint-1)
-       quickSortHelper(alist,splitpoint+1,last)
+       quick_sort_helper(alist, first, splitpoint - 1)
+       print('left: ', alist)
+       quick_sort_helper(alist, splitpoint + 1, last)
+       print('right: ', alist)
 
 
 def partition(alist,first,last):
@@ -30,13 +30,16 @@ def partition(alist,first,last):
        if rightmark < leftmark:
            done = True
        else:
-           temp = alist[leftmark]
-           alist[leftmark] = alist[rightmark]
-           alist[rightmark] = temp
+           alist[leftmark], alist[rightmark] = alist[rightmark], alist[leftmark]
 
-   temp = alist[first]
-   alist[first] = alist[rightmark]
-   alist[rightmark] = temp
-
+   alist[first], alist[rightmark] = alist[rightmark], alist[first]
 
    return rightmark
+
+
+l = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+print(l)
+print('---')
+quick_sort(l)
+print('---')
+print(l)
