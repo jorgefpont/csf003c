@@ -24,3 +24,7 @@ def hashfunction(self,key,size):
 
 def rehash(self,oldhash,size):
     return (oldhash+1)%size
+
+l = [54, 26, 93, 17, 77, 31]
+for i in l:
+  print(i%11)
