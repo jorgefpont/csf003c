@@ -17,7 +17,8 @@ def selectionSort(alist):
     print('number of passes: ', passes)
 
 
-l = [25, 1, 5, 65, 30, 100, 10]
+#l = [25, 1, 5, 65, 30, 100, 10]
+l = [22, 44, 11, 88, 66, 33, 55, 77]
 print(l)
 print('---')
 selectionSort(l)

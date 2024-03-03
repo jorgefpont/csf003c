@@ -31,7 +31,8 @@ def merge_sort(alist):
             k=k+1
     print("Merging ",alist)
 
-l = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+#l = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+l = [15, 56, 24, 5, 39, -4, 27, 10]
 print(l)
 print('---')
 merge_sort(l)
