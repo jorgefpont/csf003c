@@ -41,18 +41,18 @@ def postorder(tree):
     if tree != None:
         postorder(tree.getLeftChild())
         postorder(tree.getRightChild())
-        print(tree.getRootVal())
+        print(tree.getRootKey())
 
 def preorder(tree):
     if tree:
-        print(tree.getRootVal())
+        print(tree.getRootKey())
         preorder(tree.getLeftChild())
         preorder(tree.getRightChild())
 
 def inorder(tree):
   if tree != None:
       inorder(tree.getLeftChild())
-      print(tree.getRootVal())
+      print(tree.getRootKey())
       inorder(tree.getRightChild())
 
 def postordereval(tree):
@@ -63,9 +63,9 @@ def postordereval(tree):
         res1 = postordereval(tree.getLeftChild())
         res2 = postordereval(tree.getRightChild())
         if res1 and res2:
-            return opers[tree.getRootVal()](res1,res2)
+            return opers[tree.getRootKey()](res1, res2)
         else:
-            return tree.getRootVal()
+            return tree.getRootKey()
 
 pt = buildParseTree("( ( 10 + 5 ) * 3 / 5 )")
 postorder(pt)

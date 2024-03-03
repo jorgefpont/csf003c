@@ -1,6 +1,20 @@
+# Foothill College
+# CS 03C - DSs and A in Python, Winter 2024
+# Assignment 4
+# Prepared by Jorge Pont
+# Email: jorgefpont@gmail.com
+# Student ID: 10949994
+
+# code from class text:
 # from: https://www.openbookproject.net/books/pythonds/Trees/SearchTreeImplementation.html
 
 class TreeNode:
+    """
+    class for binary search tree node
+    source from class text (see in pgm header)
+    except as noted
+    """
+
     def __init__(self, key, val, left=None, right=None, parent=None):
         self.key = key
         self.payload = val
@@ -82,22 +96,10 @@ class TreeNode:
         if self.hasRightChild():
             self.rightChild.parent = self
 
-    def __iter__(self):
-        """
-        inorder iterator of a binary tree
-        __iter__ overrides the for x in operation for iteration
-        making this recursive
-        """
-        if self:
-            if self.hasLeftChild():
-                for elem in self.leftChiLd:
-                    yield elem
-            yield self.key
-            if self.hasRightChild():
-                for elem in self.rightChild:
-                    yield elem
-
     def print_inorder(self):
+        """
+        prints tree keys traversing the tree inorder
+        """
         if self.hasLeftChild() is not None:
             self.leftChild.print_inorder()
         print(self.key, end=" ")
@@ -105,6 +107,9 @@ class TreeNode:
             self.rightChild.print_inorder()
 
     def print_postorder(self):
+        """
+        prints tree keys traversing the tree postorder
+        """
         if self.hasLeftChild() is not None:
             self.leftChild.print_postorder()
         if self.hasRightChild() is not None:
@@ -112,6 +117,9 @@ class TreeNode:
         print(self.key, end=" ")
 
     def print_preorder(self):
+        """
+        prints tree keys traversing the tree postorder
+        """
         print(self.key, end=" ")
         if self.hasLeftChild() is not None:
             self.leftChild.print_preorder()
@@ -119,8 +127,12 @@ class TreeNode:
             self.rightChild.print_preorder()
 
 
-
 class BinarySearchTree:
+    """
+    class for binary search tree
+    source from class text (see in pgm header)
+    except as noted
+    """
 
     def __init__(self):
         self.root = None
@@ -267,24 +279,8 @@ class BinarySearchTree:
 
         return current.key
 
-
-
-# def preorder(tree):
-#     print(tree.root.key)
-#     print(tree.root.hasLeftChild)
-#     print(tree.root.hasRightChild)
-
-    # def postorder(self):
-    #     if self != None:
-    #         postorder(self.getLeftChild())
-    #         postorder(self.getRightChild())
-    #         print(self.getRootVal())
-    #
-    # def inorder(self):
-    #     if self != None:
-    #         inorder(self.getLeftChild())
-    #         print(self.getRootVal())
-    #         inorder(self.getRightChild())
+    def getRootKey(self):
+        return self.root.key
 
 
 mytree = BinarySearchTree()
@@ -306,7 +302,6 @@ print('min key: ', mytree.find_min_key())
 print('max key: ', mytree.find_max_key())
 print()
 
-
 print('inorder:')
 mytree.root.print_inorder()
 print()
@@ -315,3 +310,36 @@ mytree.root.print_postorder()
 print()
 print('preorder:')
 mytree.root.print_preorder()
+print('\n')
+
+
+
+def preorder(root_node):
+    if root_node != None:
+        print(root_node.key, end=" ")
+        preorder(root_node.hasLeftChild())
+        preorder(root_node.hasRightChild())
+
+def inorder(root_node):
+    if root_node != None:
+        inorder(root_node.hasLeftChild())
+        print(root_node.key, end=" ")
+        inorder(root_node.hasRightChild())
+
+def postorder(root_node):
+    if root_node != None:
+        postorder(root_node.hasLeftChild())
+        postorder(root_node.hasRightChild())
+        print(root_node.key, end=" ")
+
+
+root = mytree.root
+print('inorder:')
+inorder(root)
+print('\npostorder')
+postorder(root)
+print('\npreorder:')
+preorder(root)
+print()
+
+# print('\n>> root key:', mytree.getRootKey())
