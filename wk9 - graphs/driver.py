@@ -20,8 +20,19 @@ g.add_edge('c', 'b', 5)
 for v in g:
     for w in v.get_connections():
         print("({} -> {})".format(v.key, w.key))
+        print()
 
 for v in g:
     print(v)
+
+print('Nuber of vertices: ', g.get_num_vertices())
+
+print('vertices dictionary:', g.getEdges())
+
+for from_id in g.get_vertices():
+    print('from_id:', from_id)
+    t = tuple(f"{v.id}:{weight}" for v, weight in
+              g.get_vertex(from_id).adjacent.items())
+    print(f"edge; {from_id} to {t}")
 
 

@@ -29,8 +29,8 @@ class Graph:
 
     def add_vertex(self, vertex):
         """adds a vertex node to the graph"""
-        self.vertices[vertex.key] = vertex
         self.numVertices += 1
+        self.vertices[vertex.key] = vertex
 
     def get_vertex(self, key):
         """get vertex id identified by parameter"""
@@ -57,14 +57,17 @@ class Graph:
             self.add_vertex(Vertex(to_key))
         self.vertices[from_key].add_neighbor(
             self.vertices[to_key],
-            weight
-        )
+            weight)
 
     def get_vertices(self):
-        """accessor for all vertices of graph"""
-        return self.vertices.keys()
+        """accessor for all vertices of graph
+        Returns list of IDs, not vertex objects"""
+        #return self.vertices.keys()
+        return list(self.vertices.keys())
 
     def __iter__(self):
+        """usage-- for e in graph:
+        returns a list of vertices"""
         return iter(self.vertices.values())
 
     def setPrevious(self):
@@ -73,4 +76,8 @@ class Graph:
 
     def getEdges(self):
         """generates an inclusive list of from->to: weight of all edges in the graph"""
-        pass
+        return self.vertices
+
+    def get_num_vertices(self):
+        return self.numVertices
+

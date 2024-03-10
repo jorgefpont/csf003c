@@ -96,36 +96,6 @@ class TreeNode:
         if self.hasRightChild():
             self.rightChild.parent = self
 
-    def print_inorder(self):
-        """
-        prints tree keys traversing the tree inorder
-        """
-        if self.hasLeftChild() is not None:
-            self.leftChild.print_inorder()
-        print(self.key, end=" ")
-        if self.hasRightChild() is not None:
-            self.rightChild.print_inorder()
-
-    def print_postorder(self):
-        """
-        prints tree keys traversing the tree postorder
-        """
-        if self.hasLeftChild() is not None:
-            self.leftChild.print_postorder()
-        if self.hasRightChild() is not None:
-            self.rightChild.print_postorder()
-        print(self.key, end=" ")
-
-    def print_preorder(self):
-        """
-        prints tree keys traversing the tree postorder
-        """
-        print(self.key, end=" ")
-        if self.hasLeftChild() is not None:
-            self.leftChild.print_preorder()
-        if self.hasRightChild() is not None:
-            self.rightChild.print_preorder()
-
 
 class BinarySearchTree:
     """
@@ -284,34 +254,10 @@ class BinarySearchTree:
 
 
 mytree = BinarySearchTree()
-l = [5, 30, 2, 40, 25, 4]
+
+l = [3, 2, 5, 1, 4, 6, 7]
 for e in l:
     mytree.put(e, None)
-
-print('length or number of elements: ', mytree.length())
-print('root node: ', mytree.root.key)
-print('root left child: ', mytree.root.leftChild.key)
-print('root right child: ', mytree.root.rightChild.key)
-# print('root left child left child: ', mytree.root.leftChild.leftChild.key)
-print('root left child right child: ', mytree.root.leftChild.rightChild.key)
-print('root right child left child: ', mytree.root.rightChild.leftChild.key)
-print('root right child right child: ', mytree.root.rightChild.rightChild.key)
-print('contains 30 : ', 30 in mytree)
-print('contains 50 : ', 50 in mytree)
-print('min key: ', mytree.find_min_key())
-print('max key: ', mytree.find_max_key())
-print()
-
-print('inorder:')
-mytree.root.print_inorder()
-print()
-print('postorder:')
-mytree.root.print_postorder()
-print()
-print('preorder:')
-mytree.root.print_preorder()
-print('\n')
-
 
 
 def preorder(root_node):
@@ -320,11 +266,13 @@ def preorder(root_node):
         preorder(root_node.hasLeftChild())
         preorder(root_node.hasRightChild())
 
+
 def inorder(root_node):
     if root_node != None:
         inorder(root_node.hasLeftChild())
         print(root_node.key, end=" ")
         inorder(root_node.hasRightChild())
+
 
 def postorder(root_node):
     if root_node != None:
@@ -333,13 +281,48 @@ def postorder(root_node):
         print(root_node.key, end=" ")
 
 
-root = mytree.root
-print('inorder:')
-inorder(root)
-print('\npostorder')
-postorder(root)
-print('\npreorder:')
-preorder(root)
-print()
+def height(root_node):
+    if root_node is None:    # zero height
+        return 0
+    else:
+        left_height = height(root_node.hasLeftChild())
+        right_height = height(root_node.hasRightChild())
 
-# print('\n>> root key:', mytree.getRootKey())
+        if left_height > right_height:
+            return left_height + 1
+        else:
+            return right_height + 1
+
+
+
+# print('Test that the keys were entered correctly:')
+# print('root node: ', mytree.root.key)
+# print('root left child: ', mytree.root.leftChild.key)
+# print('root right child: ', mytree.root.rightChild.key)
+# print('root left child left child: ', mytree.root.leftChild.leftChild.key)
+# print('root right child left child: ', mytree.root.rightChild.leftChild.key)
+# print('root right child right child: ', mytree.root.rightChild.rightChild.key)
+# print('root right child right child right child: ', mytree.root.rightChild.rightChild.rightChild.key)
+# print()
+# print('number of elements: ', mytree.length())
+# print('min key: ', mytree.find_min_key())
+# print('max key: ', mytree.find_max_key())
+#
+# root = mytree.root
+# print('tree height if root node is at height 1:', height(root))
+# print('tree height if root node is at height 0:', height(root) - 1)
+# print()
+# print('inorder:')
+# inorder(root)
+# print('\npostorder')
+# postorder(root)
+# print('\npreorder:')
+# preorder(root)
+# print()
+#
+# print('\nProvide the Time and Space Complexity of your algorithm\n'
+#       'for finding the maximum element in the binary tree.\n')
+#
+# print('The time complexity for finding the max element in O(log n)\n'
+#         'The worse case of a fully unbanaced tree is O(n)')
+#
