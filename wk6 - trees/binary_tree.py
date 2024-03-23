@@ -21,7 +21,7 @@ class BinaryTree:
             self.leftChild = t
 
     def insertRight(self,newNode):
-        if self.rightChild == None:
+        if self.rightChild is None:
             self.rightChild = BinaryTree(newNode)
         else:
             t = BinaryTree(newNode)
@@ -43,7 +43,7 @@ class BinaryTree:
 
 def preorder(tree):
     if tree:
-        print(tree.getRootKey())
+        print(tree.getRootVal())
         preorder(tree.getLeftChild())
         preorder(tree.getRightChild())
 
@@ -51,12 +51,12 @@ def postorder(tree):
     if tree != None:
         postorder(tree.getLeftChild())
         postorder(tree.getRightChild())
-        print(tree.getRootKey())
+        print(tree.getRootVal())
 
 def inorder(tree):
   if tree != None:
       inorder(tree.getLeftChild())
-      print(tree.getRootKey())
+      print(tree.getRootVal())
       inorder(tree.getRightChild())
 
 if __name__ == '__main__':
