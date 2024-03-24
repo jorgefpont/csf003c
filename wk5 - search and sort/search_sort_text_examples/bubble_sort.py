@@ -14,7 +14,8 @@ def bubbleSort(alist):
             passes += 1
     print('number of passes: ', passes)
 
-l = [25, 1, 5, 65, 30, 100, 10]
+#l = [25, 1, 5, 65, 30, 100, 10]
+l = [2,9,5,4,8,1]   #from quiz
 print(l)
 print('---')
 bubbleSort(l)
